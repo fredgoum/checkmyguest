@@ -37,8 +37,12 @@
         </div>
         <div class="my-3">
           <span>-------------</span>
-          <span> {{ room.nights }} nuit</span>
-          <span>-------------</span>
+          <span>
+            {{ room.nights }}
+            <span v-if="room.nights == 0 || room.nights == 1">nuit</span>
+            <span v-else>nuits</span>
+          </span>
+          <span> -------------</span>
         </div>
         <div>
           <span>Réservation</span>
@@ -48,7 +52,8 @@
       </div>
       <!-- Btn commencer -->
       <div class="mb-0" cols="12" style="background: yellow; padding-top: 70px; padding-bottom: 120px;">
-        <v-btn class="text-capitalize" rounded color="primary" style="">
+        <v-btn class="text-capitalize" rounded color="primary"
+               @click="goToContacts()">
           Commencer
         </v-btn>
         <div class="mt-5">
@@ -86,6 +91,12 @@
       }).catch((message) => {
         console.log(message);
       });
-    }
+    },
+    methods: {
+      // Go to Contacts page
+      goToContacts() {
+        this.$router.push({ path: '/contacts' });
+      },
+    },
   };
 </script>

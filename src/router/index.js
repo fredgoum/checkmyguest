@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '@/components/Home';
 import Contacts from '@/components/Contacts';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {

@@ -11,15 +11,15 @@
         <v-img :src="require('../assets/room-img.jpg')"/>
         <div class="px-5" style="display: flex; justify-content: space-between; background: #2b2b2b; color: white;">
           <img class="my-2" src="@/assets/logo-airbnb.png" alt="rbb logo" width="40">
-          <div style="display: flex;">
+          <div class="text-capitalize" style="display: flex;">
             <div>
-              <div>Sam.</div>
-              <div>11 Jan.</div>
+              <div>{{ startDate.day }}.</div>
+              <div>{{ startDate.month }}.</div>
             </div>
             <span> > </span>
             <div>
-              <div>Dim.</div>
-              <div>12 Jan.</div>
+              <div>{{ endDate.day }}.</div>
+              <div>{{ endDate.month }}.</div>
             </div>
           </div>
         </div>
@@ -78,6 +78,7 @@
 
 <script>
   import ApiSrv from '@/js/services/ApiSrv';
+  import moment from 'moment';
 
   export default {
     name: 'HomeContent',
@@ -87,6 +88,14 @@
         room: null,
         dataIsReady: false,
       };
+    },
+    computed: {
+      startDate() {
+        return this.getRoomDate(this.room.start);
+      },
+      endDate() {
+        return this.getRoomDate(this.room.end);
+      },
     },
     created() {
       /**
@@ -103,6 +112,13 @@
       });
     },
     methods: {
+      // Get room start and end date
+      getRoomDate(date) {
+        const dateMoment = moment(date).locale('fr').format('ddd ll');
+        const splitedMoment = dateMoment.split('.');
+        const roomDate = { day: splitedMoment[0], month: splitedMoment[1] };
+        return roomDate;
+      },
       // Go to Contacts page
       goToContacts() {
         this.$router.push({ path: '/contacts' });

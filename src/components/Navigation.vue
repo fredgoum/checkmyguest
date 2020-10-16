@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-app-bar v-if="homePage" app flat height="54" style="border-bottom: 4px solid #0169aa !important;">
-      <img class="mx-auto my-2" src="@/assets/logo.png" alt="checkmyguest logo" width="40">
+    <v-app-bar v-if="homePage" app flat height="54" style="background: #ffffff; border-bottom: 4px solid #d4d1cc !important;">
+      <img class="mx-auto my-2" src="@/assets/logo-checkmyguest.png" alt="checkmyguest logo" width="40">
     </v-app-bar>
-    <v-app-bar v-else app flat height="50">
+    <v-app-bar v-else app flat height="50" style="background: #ffffff;">
       <div @click="goToHome()">Prev</div>
       <div style="margin-left: 100px; margin-right: 100px;">Contacts</div>
       <div>FR</div>

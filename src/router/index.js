@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/components/Home';
-import Contacts from '@/components/Contacts';
+import ContactForm from '@/components/ContactForm';
 
 Vue.use(VueRouter);
 
@@ -13,8 +13,8 @@ const routes = [
   },
   {
     path: '/contacts',
-    name: 'Contacts',
-    component: Contacts
+    name: 'ContactForm',
+    component: ContactForm
   }
 ]
 

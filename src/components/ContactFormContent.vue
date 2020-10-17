@@ -1,20 +1,23 @@
 <template>
   <div>
-    <!-- Navigation -->
-    <navigation></navigation>GG
-    <v-progress-linear style="margin-top:25px; position: absolute" height="5" value="70" color="#0169aa"></v-progress-linear>
-
-    <div class="mx-10" style="margin-top: 40px;">
+    <div class="mx-10" style="margin-top: 60px;">
       <!-- Email -->
       <v-text-field v-model="email" label="Email"></v-text-field>
       <!-- Phone -->
-      <div class="mt-5" style="display: flex;">
-        <!-- <v-select :items="items" label="Outlined style" outlined></v-select> -->
-        <v-select label="+33" outlined style="width: 100px;"></v-select>
-        <v-text-field v-model="phone" class="ml-2" type="number" label="Téléphone"></v-text-field>
+      <div style="margin-bottom: 60px;">
+        <v-text-field v-model="phone" label="Téléphone" hide-details>
+          <template v-slot:prepend>
+            <vue-tel-input  @country-changed="countrySelected" style="width: 100px; height: 45px;">
+              <template v-slot:arrow-icon>
+                <strong>+{{countryCode}}</strong>
+                <div class="ml-2">down</div>
+              </template>
+            </vue-tel-input>
+          </template>
+        </v-text-field>
       </div>
     </div>
-    <div class="py-10" style="background: #fef4ec;">
+    <div class="py-10" style="background: #fef4ec; height: 100%;">
       <div class="mx-10">
         <p style="font-size: 10px;">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -24,7 +27,7 @@
           culpa qui officia deserunt mollit anim id est laborum
         </p>
         <!-- Btn validate -->
-        <div class="text-center mt-10" style="margin-bottom: 100px;">
+        <div class="text-center mt-10">
           <v-btn class="text-capitalize" large rounded color="#003a83" style="width: 150px; color: white;"
                @click="ValidateForm()">
             Valider
@@ -33,20 +36,24 @@
       </div>
     </div>
 
+    <!-- Validation message -->
     <saving-bar :snackbar="snackbar"></saving-bar>
   </div>
 </template>
 
+<style>
+  .v-input__control {
+    margin-top: 15px;
+  }
+</style>
+
 <script>
-  import Navigation from '@/components/Navigation';
   import SavingBar from '@/components/Reusables/SavingBar';
 
-
   export default {
-    name: "Contacts",
+    name: "ContactFormContent",
 
     components: {
-      Navigation,
       SavingBar
     },
 
@@ -54,10 +61,14 @@
       return {
         email: '',
         phone: null,
+        countryCode: null,
         snackbar: { value: false },
       };
     },
     methods: {
+      countrySelected(val) {
+        this.countryCode = val.dialCode;
+      },
       ValidateForm() {
         // console.log('validate form');
         // console.log(this.email);

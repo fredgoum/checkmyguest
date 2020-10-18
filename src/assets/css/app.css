@@ -2,7 +2,7 @@ body {
   margin-left: 200px;
   margin-right: 200px;
 }
-.nav {
+#home-nav, #contact-nav {
   margin-left: 200px;
   margin-right: 200px;
 }
@@ -13,7 +13,7 @@ body {
     margin-left: 0px;
     margin-right: 0px;
   }
-  .nav {
+  #home-nav, #contact-nav {
     margin-left: 0px;
     margin-right: 0px;
   }

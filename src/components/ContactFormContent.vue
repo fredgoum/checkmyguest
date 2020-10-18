@@ -63,6 +63,7 @@
       return {
         email: '',
         phone: null,
+        user: {},
         countryCode: null,
         snackbar: { value: false },
       };
@@ -79,21 +80,14 @@
        * Validate the contact form
        */
       ValidateForm() {
-        const user = {};
-        user.email = this.email;
-        user.phone = `+${this.countryCode}${this.phone}`;
-        // roomData.user = user;
-        this.$store.state.room.user = user;
-        // console.log(this.$store.state.room);
-        // console.log(roomData);
+        this.user.mail = this.email;
+        this.user.phone = `+${this.countryCode}${this.phone}`;
 
-        // Call api to add user to room data
-        ApiSrv.updateRoom(this.$store.state.room).then((response) => {
-          console.log('rr');
-          console.log(response);
-          // if (response.ok) {
-          //   this.snackbar.value = true;
-          // }
+        // Call api to send user data
+        ApiSrv.updateRoom(this.user).then((response) => {
+          if (response.ok) {
+            this.snackbar.value = true;
+          }
         }).catch((message) => {
           console.log(message);
         });

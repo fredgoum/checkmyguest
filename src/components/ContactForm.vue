@@ -2,8 +2,6 @@
   <div style="display: flex;">
     <!-- Navigation -->
     <navigation></navigation>
-    <!-- <v-progress-linear style="margin-top:25px; position: absolute" height="5" value="70" color="#0169aa">
-    </v-progress-linear> -->
     <!-- Contact Form Content -->
     <contact-form-content></contact-form-content>
   </div>

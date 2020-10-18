@@ -12,7 +12,7 @@
   import HomeContent from '@/components/HomeContent'
 
   export default {
-    name: 'HelloWorld',
+    name: 'Home',
 
     components: {
       Navigation,

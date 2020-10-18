@@ -101,10 +101,8 @@
       /**
        * Get Room data from API datas
        */
-      const id = this.$store.state.roomId;
-      ApiSrv.getRoom(id).then((response) => {
+      ApiSrv.getRoom().then((response) => {
         this.room = response;
-        this.$store.commit('roomData', this.room);
         this.dataIsReady = true;
       }).catch((message) => {
         console.log(message);

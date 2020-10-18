@@ -1,7 +1,7 @@
 <template>
   <div class="text-center ma-2">
     <v-snackbar v-model="snackbar.value" rounded="pill">
-      <span>Les informations sont enregistrées</span>
+      <span>Les données sont bien enregistrées</span>
 
       <template v-slot:action="{ attrs }">
         <v-btn color="pink" text v-bind="attrs"

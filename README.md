@@ -1,5 +1,7 @@
 # checkmyguest
 
+# Mockup - Hotel Room Reservation
+
 ## Project setup
 ```
 yarn install

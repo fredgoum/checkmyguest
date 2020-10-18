@@ -1,5 +1,22 @@
+body {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.nav {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
 /* Display on mobile screen */
 @media screen and (max-width: 880px) {
+  body {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .nav {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
   .vti__dropdown-list.below {
     top: 33px;
     width: 300px;

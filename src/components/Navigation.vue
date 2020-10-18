@@ -1,11 +1,11 @@
 <template>
   <div>
     <!-- Home Navigation -->
-    <v-app-bar v-if="homePage" app flat height="50" style="background: #ffffff; border-bottom: 4px solid #d4d1cc !important;">
+    <v-app-bar class="nav" v-if="homePage" app flat height="50" style="background: #ffffff; border-bottom: 4px solid #d4d1cc !important;">
       <img class="mx-auto my-2" src="@/assets/logo-checkmyguest.png" alt="checkmyguest logo" width="40">
     </v-app-bar>
     <!-- Contacts Navigation -->
-    <v-app-bar v-else app flat height="50" style="background: #ffffff; border-bottom: 4px solid #003a83 !important;">
+    <v-app-bar class="nav" v-else app flat height="50" style="background: #ffffff; border-bottom: 4px solid #003a83 !important;">
       <div style="font-size: 20px; cursor: pointer;" @click="goToHome()">
         <v-icon class="fas fa-arrow-left"></v-icon>
       </div>

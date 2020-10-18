@@ -2,10 +2,10 @@
   <div>
     <div class="mx-10" style="margin-top: 60px;">
       <!-- Email -->
-      <v-text-field v-model="email" label="Email"></v-text-field>
+      <v-text-field v-model="email" :rules="[rules.required, rules.email]" label="Email"></v-text-field>
       <!-- Phone -->
       <div style="margin-bottom: 60px;">
-        <v-text-field v-model="phone" label="Téléphone" type="number" hide-details>
+        <v-text-field v-model="phone" :rules="[rules.required]" label="Téléphone" type="number" hide-details>
           <template v-slot:prepend>
             <vue-tel-input @country-changed="countrySelected" style="width: 108px; height: 40px;">
               <template v-slot:arrow-icon>
@@ -66,6 +66,13 @@
         user: {},
         countryCode: null,
         snackbar: { value: false },
+        rules: {
+          required: value => !!value || 'Required.',
+          email: value => {
+            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            return pattern.test(value) || 'Invalid e-mail.'
+          },
+        },
       };
     },
     methods: {

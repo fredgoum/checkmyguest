@@ -2,7 +2,7 @@
   <div>
     <!-- Home Navigation -->
     <v-app-bar id="home-nav" v-if="homePage" app flat height="54" style="background: #ffffff; border-bottom: 4px solid #d4d1cc !important;">
-      <img class="mx-auto my-2" src="@/assets/logo-checkmyguest.png" alt="checkmyguest logo" width="40">
+      <img class="mx-auto my-2" src="@/assets/images/favicon.svg" alt="checkmyguest logo" width="40">
     </v-app-bar>
     <!-- Contacts Navigation -->
     <v-app-bar id="contact-nav" v-else app flat height="54" style="background: #ffffff;">

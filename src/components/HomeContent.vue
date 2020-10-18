@@ -8,9 +8,9 @@
     <div v-else>
       <!-- Room -->
       <div class="pa-0 mb-5" cols="12">
-        <v-img :src="require('../assets/room-img.jpg')"/>
+        <v-img :src="require('@/assets/images/room.jpg')"/>
         <div class="px-5" style="display: flex; justify-content: space-between; background: #2b2b2b; color: white;">
-          <img class="my-2" src="@/assets/logo-airbnb.png" alt="rbb logo" width="40">
+          <img class="my-2" src="@/assets/images/airbnb.png" alt="rbb logo" width="40">
           <div class="text-capitalize text-start mt-2" style="display: flex;">
             <div>
               <div style="margin-bottom: -5px;">{{ startDate.day }}.</div>

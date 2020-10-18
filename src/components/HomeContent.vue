@@ -11,14 +11,14 @@
         <v-img :src="require('../assets/room-img.jpg')"/>
         <div class="px-5" style="display: flex; justify-content: space-between; background: #2b2b2b; color: white;">
           <img class="my-2" src="@/assets/logo-airbnb.png" alt="rbb logo" width="40">
-          <div class="text-capitalize" style="display: flex;">
+          <div class="text-capitalize text-start mt-2" style="display: flex;">
             <div>
-              <div>{{ startDate.day }}.</div>
+              <div style="margin-bottom: -5px;">{{ startDate.day }}.</div>
               <div>{{ startDate.month }}.</div>
             </div>
-            <span> > </span>
+            <v-icon class="mt-3 mx-3" small color="#ffffff">fas fa-chevron-right</v-icon>
             <div>
-              <div>{{ endDate.day }}.</div>
+              <div style="margin-bottom: -5px;">{{ endDate.day }}.</div>
               <div>{{ endDate.month }}.</div>
             </div>
           </div>

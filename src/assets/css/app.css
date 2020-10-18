@@ -1,0 +1,7 @@
+/* Display on mobile screen */
+@media screen and (max-width: 880px) {
+  .vti__dropdown-list.below {
+    top: 33px;
+    width: 300px;
+  }
+}

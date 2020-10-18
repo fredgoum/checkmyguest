@@ -7,17 +7,18 @@
       <div style="margin-bottom: 60px;">
         <v-text-field v-model="phone" label="Téléphone" hide-details>
           <template v-slot:prepend>
-            <vue-tel-input  @country-changed="countrySelected" style="width: 100px; height: 45px;">
+            <vue-tel-input  @country-changed="countrySelected" style="width: 86px; height: 40px;">
               <template v-slot:arrow-icon>
-                <strong>+{{countryCode}}</strong>
-                <div class="ml-2">down</div>
+                <span>+{{countryCode}}</span>
+                <v-icon class="ml-2" x-small>fas fa-chevron-down</v-icon>
               </template>
             </vue-tel-input>
           </template>
         </v-text-field>
       </div>
     </div>
-    <div class="py-10" style="background: #fef4ec; height: 100%;">
+
+    <div class="pt-10" style="background: #fef4ec; height: 100%; ">
       <div class="mx-10">
         <p style="font-size: 10px;">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -27,7 +28,7 @@
           culpa qui officia deserunt mollit anim id est laborum
         </p>
         <!-- Btn validate -->
-        <div class="text-center mt-10">
+        <div class="text-center" style="margin-top: 120px;">
           <v-btn class="text-capitalize" large rounded color="#003a83" style="width: 150px; color: white;"
                @click="ValidateForm()">
             Valider
@@ -43,7 +44,7 @@
 
 <style>
   .v-input__control {
-    margin-top: 15px;
+    margin-top: 8px;
   }
 </style>
 
@@ -54,7 +55,7 @@
     name: "ContactFormContent",
 
     components: {
-      SavingBar
+      SavingBar,
     },
 
     data() {

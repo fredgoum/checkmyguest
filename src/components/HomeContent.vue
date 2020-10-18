@@ -111,14 +111,18 @@
       });
     },
     methods: {
-      // Get room start and end date
+      /**
+       * Get room start and end date
+       */
       getRoomDate(date) {
         const dateMoment = moment(date).locale('fr').format('ddd ll');
         const splitedMoment = dateMoment.split('.');
         const roomDate = { day: splitedMoment[0], month: splitedMoment[1] };
         return roomDate;
       },
-      // Go to Contacts page
+      /**
+       * Go to Contacts page
+       */
       goToContacts() {
         this.$router.push({ path: '/contacts' });
       },

@@ -68,9 +68,16 @@
       };
     },
     methods: {
+      /**
+       * Get the code of selected country
+       * @param {Object} val courtry code value
+       */
       countrySelected(val) {
         this.countryCode = val.dialCode;
       },
+      /**
+       * Validate the contact form
+       */
       ValidateForm() {
         const user = {};
         user.email = this.email;

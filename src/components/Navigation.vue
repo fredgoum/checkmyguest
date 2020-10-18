@@ -36,7 +36,9 @@
       }
     },
     methods: {
-      // Go to home page
+      /**
+       * Go to home page
+       */
       goToHome() {
         this.$router.push({ path: '/' });
       },

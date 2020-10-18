@@ -15,6 +15,8 @@
 
 <script>
   export default {
+    name: "SavingBar",
+    
     props: {
       snackbar: { type: Object, default: null },
     }

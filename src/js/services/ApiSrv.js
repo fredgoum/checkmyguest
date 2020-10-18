@@ -1,11 +1,13 @@
+const apiUrl = 'https://api.cmg.ovh:3000/testtech/alfred/';
+
 /**
- * Get room data from API datas with GET method
- * @param {Object} apiUrl url to send to api
+ * Get room datas with GET method
+ * @param {Integer} roomId room id to send to api
  */
-async function getRoom(apiUrl) {
+async function getRoom(roomId) {
   let response = [];
   try {
-    const res = await fetch(apiUrl);
+    const res = await fetch(`${apiUrl}${roomId}`);
     if (! res.ok) throw new Error(res.status);
     response = await res.json();
   } catch (error) {
@@ -15,12 +17,11 @@ async function getRoom(apiUrl) {
 }
 
 /**
- * Update a bike with PUT method
- * @param {Object} room bike to update
+ * Update a room with PUT method
+ * @param {Object} room room to update
  */
-async function updateRoom(apiUrl, room) {
+async function updateRoom(room) {
   let response = null;
-  const url = `${apiUrl}/${room._id}`;
   const options = {
     method: 'PUT',
     body: JSON.stringify(room),
@@ -29,7 +30,7 @@ async function updateRoom(apiUrl, room) {
     }
   }
   try {
-    const res = await fetch(url, options);
+    const res = await fetch(`${apiUrl}${room.id}`, options);
     if (! res.ok) throw new Error(res.status);
     response = res;
   } catch (error) {

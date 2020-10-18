@@ -101,11 +101,10 @@
       /**
        * Get Room data from API datas
        */
-      const id = 20;
-      const url = 'https://api.cmg.ovh:3000/testtech/alfred/';
-      const apiUrl = `${url}${id}!`
-      ApiSrv.getRoom(apiUrl).then((response) => {
+      const id = this.$store.state.roomId;
+      ApiSrv.getRoom(id).then((response) => {
         this.room = response;
+        this.$store.commit('roomData', this.room);
         this.dataIsReady = true;
       }).catch((message) => {
         console.log(message);

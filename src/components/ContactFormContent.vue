@@ -5,12 +5,12 @@
       <v-text-field v-model="email" label="Email"></v-text-field>
       <!-- Phone -->
       <div style="margin-bottom: 60px;">
-        <v-text-field v-model="phone" label="Téléphone" hide-details>
+        <v-text-field v-model="phone" label="Téléphone" type="number" hide-details>
           <template v-slot:prepend>
-            <vue-tel-input  @country-changed="countrySelected" style="width: 86px; height: 40px;">
+            <vue-tel-input @country-changed="countrySelected" style="width: 108px; height: 40px;">
               <template v-slot:arrow-icon>
                 <span>+{{countryCode}}</span>
-                <v-icon class="ml-2" x-small>fas fa-chevron-down</v-icon>
+                <v-icon class="ml-2 mr-8" x-small>fas fa-chevron-down</v-icon>
               </template>
             </vue-tel-input>
           </template>
@@ -49,6 +49,7 @@
 </style>
 
 <script>
+  import ApiSrv from '@/js/services/ApiSrv';
   import SavingBar from '@/components/Reusables/SavingBar';
 
   export default {
@@ -71,10 +72,24 @@
         this.countryCode = val.dialCode;
       },
       ValidateForm() {
-        // console.log('validate form');
-        // console.log(this.email);
-        // console.log(this.phone);
-        this.snackbar.value = true;
+        const user = {};
+        user.email = this.email;
+        user.phone = `+${this.countryCode}${this.phone}`;
+        // roomData.user = user;
+        this.$store.state.room.user = user;
+        // console.log(this.$store.state.room);
+        // console.log(roomData);
+
+        // Call api to add user to room data
+        ApiSrv.updateRoom(this.$store.state.room).then((response) => {
+          console.log('rr');
+          console.log(response);
+          // if (response.ok) {
+          //   this.snackbar.value = true;
+          // }
+        }).catch((message) => {
+          console.log(message);
+        });
       },
     },
   };

@@ -1,6 +1,6 @@
 # checkmyguest
 
-# Mockup - Hotel Room Reservation
+### Mockup - Hotel Room Reservation
 
 ## Project setup
 ```

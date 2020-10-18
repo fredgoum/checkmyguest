@@ -6,6 +6,16 @@ body {
   margin-left: 200px;
   margin-right: 200px;
 }
+#lorem-ipsum-container {
+  background: #fef4ec;
+  height: 100%;
+  padding-top: 60px;
+  margin-bottom: -80px;
+}
+#lorem-ipsum {
+  font-size: 13px;
+  letter-spacing: 0.00001em;
+}
 
 /* Display on mobile screen */
 @media screen and (max-width: 880px) {
@@ -20,5 +30,13 @@ body {
   .vti__dropdown-list.below {
     top: 33px;
     width: 300px;
+  }
+  #lorem-ipsum-container {
+    padding-top: 45px;
+    margin-bottom: -60px;
+  }
+  #lorem-ipsum {
+    font-size: 10px;
+    letter-spacing: 0.00001em;
   }
 }

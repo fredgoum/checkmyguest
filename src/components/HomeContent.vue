@@ -1,32 +1,32 @@
 <template>
-  <div class="text-center" style="background: #ffffff;">
+  <div id="home-content" class="text-center">
     <!-- Data loading -->
     <div v-if="! dataIsReady">
-      <v-progress-circular :size="80" :width="7" indeterminate color="#003a83" style="margin-top: 150px;">
+      <v-progress-circular id="progress-circular" :size="80" :width="7" indeterminate color="#003a83">
       </v-progress-circular>
     </div>
     <div v-else>
       <!-- Room -->
-      <div class="pa-0 mb-5" cols="12">
+      <div class="pa-0" cols="12">
         <v-img :src="require('@/assets/images/room.jpg')"/>
-        <div class="px-5" style="display: flex; justify-content: space-between; background: #2b2b2b; color: white;">
-          <img class="my-2" src="@/assets/images/airbnb.png" alt="rbb logo" width="40">
+        <div id="room-details-bar" class="px-8">
+          <img class="my-2" src="@/assets/images/airbnb.png" alt="rbb logo" width="33">
           <div class="text-capitalize text-start mt-2" style="display: flex;">
             <div>
-              <div style="margin-bottom: -5px;">{{ startDate.day }}.</div>
-              <div>{{ startDate.month }}.</div>
+              <div style="margin-bottom: -3px;">{{ startDate.day }}.</div>
+              <div style="font-size: 12px;">{{ startDate.month }}.</div>
             </div>
             <v-icon class="mt-3 mx-3" small color="#ffffff">fas fa-chevron-right</v-icon>
             <div>
-              <div style="margin-bottom: -5px;">{{ endDate.day }}.</div>
-              <div>{{ endDate.month }}.</div>
+              <div style="margin-bottom: -3px;">{{ endDate.day }}.</div>
+              <div style="font-size: 12px;">{{ endDate.month }}.</div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Room Details -->
-      <div class="mb-2" cols="12">
+      <div class="mb-5 mt-8" cols="12">
         <div>
           <div>{{ room.address }}</div>
           <div>
@@ -34,9 +34,9 @@
             <span>{{ room.city }}</span>
           </div>
         </div>
-        <span class="hr my-3">
+        <span class="hr my-5">
           <span class="mx-3">
-            {{ room.nights }}
+            <span>{{ room.nights }} </span>
             <span v-if="room.nights == 0 || room.nights == 1">nuit</span>
             <span v-else>nuits</span>
           </span>
@@ -45,16 +45,18 @@
           <span>Réservation </span>
           <span class="text-uppercase">{{ room.reservationCode }}</span>
         </div>
-        <span>{{ room.guestNb }} personnes</span>
+        <span>{{ room.guestNb }} </span>
+        <span v-if="room.guestNb == 0 || room.guestNb == 1">personne</span>
+        <span v-else>personnes</span>
       </div>
 
       <!-- Btn commencer -->
-      <div class="mb-0" cols="12" style="background: #fef4ec; padding-top: 70px; padding-bottom: 120px;">
-        <v-btn class="text-capitalize" rounded color="#003a83" style="color: white;"
+      <div id="btn-start-container" class="mb-0" cols="12">
+        <v-btn class="text-capitalize" rounded color="#003a83" style="color: white;" width="170" height="45"
                @click="goToContacts()">
           Commencer
         </v-btn>
-        <div class="mt-5">
+        <div class="mt-6">
           <a class="subheading mx-3" target="_blank" style="color: #003a83;">
             Choisir une langue
           </a>
@@ -70,9 +72,26 @@
     display: flex;
   }
   .hr::before, .hr::after {
-    border-top: 2px dashed grey;
+    border-top: 2px dashed #D3D3D3;
     content: "";
     flex: 1;
+  }
+  #home-content {
+    background: #ffffff;
+  }
+  #room-details-bar {
+    display: flex;
+    justify-content: space-between;
+    background: #2b2b2b;
+    color: white;
+  }
+  #progress-circular {
+    margin-top: 150px;
+  }
+  #btn-start-container {
+    background: #fef4ec;
+    padding-top: 60px;
+    padding-bottom: 140px;
   }
 </style>
 

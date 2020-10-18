@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="mx-10" style="margin-top: 60px;">
+    <div class="mx-10" style="margin-top: 85px;">
       <!-- Email -->
       <v-text-field v-model="email" :rules="[rules.required, rules.email]" label="Email"></v-text-field>
       <!-- Phone -->
-      <div style="margin-bottom: 60px;">
+      <div id="phone-container">
         <v-text-field v-model="phone" :rules="[rules.required]" label="Téléphone" type="number" hide-details>
           <template v-slot:prepend>
             <vue-tel-input @country-changed="countrySelected" style="width: 108px; height: 40px;">
@@ -18,18 +18,18 @@
       </div>
     </div>
 
-    <div class="pt-10" style="background: #fef4ec; height: 100%; ">
+    <div id="lorem-ipsum-container">
       <div class="mx-10">
-        <p style="font-size: 10px;">
+        <p id="lorem-ipsum" align="justify">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
           et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          aliquip ex ea commodo. Duis aute irure dolor in reprehenderit in voluptate velit esse
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <!-- Btn validate -->
-        <div class="text-center" style="margin-top: 120px;">
-          <v-btn class="text-capitalize" large rounded color="#003a83" style="width: 150px; color: white;"
+        <div class="text-center" style="margin-top: 60px;">
+          <v-btn id="btn-validate" class="text-capitalize" large rounded color="#003a83"
                @click="ValidateForm()">
             Valider
           </v-btn>
@@ -43,8 +43,15 @@
 </template>
 
 <style>
+  #phone-container {
+    margin-bottom: 60px;
+  }
   .v-input__control {
     margin-top: 8px;
+  }
+  #btn-validate {
+    width: 150px;
+    color: white;
   }
 </style>
 
